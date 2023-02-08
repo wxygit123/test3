@@ -1,0 +1,217 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+			
+}
+body{
+	margin:0px;
+	
+	background-size:100% 100%;
+	background-attachment:fixed;
+	background-image:url(../img/bgimg.jpg) ;
+	font-family:STKaiti;
+	height: 100vh;
+	}
+.nav{
+	width:100%;
+	height: 100vh;
+	list-style: none;
+	text-align: center;
+	background-image: url(../img/bg1.png);
+	font-size: 25px;
+}
+
+.nav::berfore{
+	filter: brightness(70%);
+}
+.nav1{
+	width:100%;
+	height: 160px;
+	background-color: #000000;
+	background:rgba(0,0,0,0.3);
+	
+	margin:0 auto;
+}
+.liebiao{
+	padding-left: 580px;
+	width: 100%;
+	height:100px;
+	text-align: center;
+}
+
+.nav-2{
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+    align-items: center;
+    padding: 0 5rem 0 5rem;
+	padding-top: 1.25rem;
+}
+.nav-2>div:nth-child(1){
+    flex: 3;
+}
+.nav-2>div:nth-child(2){
+    flex: 2;
+}
+.nav-2>div:nth-child(1)>img{
+    width: 3rem;
+    height: 3rem;
+    vertical-align: middle;
+    margin: 0 1rem 0 0;
+}
+.nav-2>div:nth-child(1)>span{
+    color: white;
+    font-size: 20px;
+    vertical-align: middle;
+    margin: 0 .5rem;
+}
+
+li{
+	width: 140px;
+	line-height:70px;
+	float: left;
+	
+}
+a{
+	text-decoration: none;
+	color: #F0F8FF;
+}
+#time{
+	color: #FFFFFF;
+	font-size: 1.1rem;
+}
+.city{
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+}
+.chuancheng{
+	width: 100%;
+	
+}
+.bottom{
+	width: 100%;
+	text-align: center;
+	height: 400px;
+	padding-top:200px;
+}
+:root{
+	--left-bg-color:rgba(255, 255, 255, 0.7);
+	--right-bg-color:rgba(43,43,43,0.8);
+	--left-btn-hover-color:rgba(158, 29, 12, 1.0);
+	--right-btn-hover-color:rgba(235, 226, 218, 1.0);
+	--hover-width:75%;
+	--other-width:25%;
+	--speed:1000ms;
+}
+		
+		
+		
+		
+.container{
+	width: 100%;
+	height: 100%;
+	background-color:rgba();
+	position: relative;
+	text-align: center;
+}
+h1{
+	font-size:2rem;/*rem  根元素，在这里是字体的大小*/
+	color:#fff;
+	position: absolute;
+	top:20%;
+	left:50%;
+	transform: translate(-50%);
+	/*white-space属性是用来定义元素的空白该如何处理 nowrap:只保留一个空白，文本不会换行，会在同一行上继续，直到遇到br标签为止*/
+	/*此处的作用是窗口变大变小时文字不变行*/
+	white-space: nowrap;
+}
+.split{
+	position: absolute;
+	width:50%;
+	height:100%;
+	/*overflow是对溢出内容的处理，有四个属性值visible，hidden，scroll，auto 。其中hidden隐藏溢出的内容且不出现滚动条*/
+	overflow: hidden;
+}
+.split.left{
+	left:0;
+	background-image:url(../img/传统工艺.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.split.right{
+	right:0;
+	background-image:url(../img/非遗继承人.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+	.split.left::before{/*伪元素*/
+	content:'' ;
+	display: block;
+	width: 100%;
+	height: 100%;
+	/*引用全局变量前加var*/
+	background-color: var(--left-bg-color);
+}
+.split.right::before{/*伪元素*/
+	content:'' ;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: var(--right-bg-color);
+}
+		
+.btn{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size:1.5rem;
+	font-weight: bold;
+	position: absolute;
+	left:50%;
+	/*transform 改变，使..变形   translateX X轴移动*/
+	transform:translateX(-50%);
+	top:40%;
+	border:#FFFFFF solid 0.1rem;
+	width:15rem;
+	padding: 1.5rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+.split.left .btn:hover{
+	background-color:var(--left-btn-hover-color);
+	border-color:var(--left-btn-hover-color);
+}
+.split.right .btn:hover{
+	background-color: var(--right-btn-hover-color);
+	border-color: var(--right-btn-hover-color);
+}
+.hover-left .left{
+	width:var(--hover-width);
+}
+.hover-left .split.right{
+	width:var(--other-width);
+}
+.hover-right .left{
+	width:var(--other-width);
+}
+.hover-right .right{
+	width:var(--hover-width);
+}
+		
+/*效果过渡*/
+.split, .right::before, .left::before{
+	transition: width var(--speed) ease-in-out;
+}
+		
+/*响应式布局*/
+@media(max-width:800px){
+	h1{
+		font-size:1.5rem;
+		top:30%;
+	}
+	.btn{
+		padding:0.9rem;
+		width:12rem;
+	}
+}
